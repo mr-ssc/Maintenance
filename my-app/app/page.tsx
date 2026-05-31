@@ -1,15 +1,14 @@
 // app/page.tsx
 'use client';
 
-import { Metadata } from 'next'
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
 
 export default function HomePage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const domain = "https://www.digitalwaala.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,10 +74,28 @@ export default function HomePage() {
             </div>
           </motion.div>
 
-          {/* Title with Gradient Text */}
+          {/* Title with Domain Highlight */}
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
-            Under Maintenance
+            DigitalWalla – <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Under Maintenance</span>
           </h1>
+
+          {/* Domain Highlight Box */}
+          <motion.div 
+            className="mb-6 inline-block bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl px-6 py-3 shadow-sm border border-blue-200"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <p className="text-sm font-medium text-gray-500">Our website</p>
+            <a 
+              href={domain} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent hover:underline animate-pulse"
+            >
+              {domain.replace('https://', '')}
+            </a>
+          </motion.div>
 
           {/* Animated Description */}
           <motion.p 
@@ -87,9 +104,9 @@ export default function HomePage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            We're making things better! 🚀 Our website is currently undergoing scheduled maintenance.
+            🚀 We&apos;re making DigitalWalla even better! Our website is currently undergoing scheduled maintenance.
             <br />
-            <span className="text-blue-600 font-medium">We'll be back with you shortly!</span>
+            <span className="text-blue-600 font-medium">We&apos;ll be back at {domain} shortly!</span>
           </motion.p>
 
           {/* Progress Bar Animation */}
@@ -102,15 +119,15 @@ export default function HomePage() {
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               />
             </div>
-            <p className="text-xs text-gray-500 mt-2">Maintenance in progress...</p>
+            <p className="text-xs text-gray-500 mt-2">Maintenance in progress for {domain.replace('https://', '')}...</p>
           </div>
 
           {/* Social Media Links with Enhanced Animations */}
           <div className="flex justify-center space-x-6 mb-10">
             {[
-              { href: "https://twitter.com", icon: "M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z", color: "hover:bg-blue-500", label: "Twitter" },
-              { href: "https://facebook.com", icon: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z", color: "hover:bg-blue-600", label: "Facebook" },
-              { href: "https://instagram.com", icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z", color: "hover:bg-pink-600", label: "Instagram" }
+              { href: "https://twitter.com/digitalwaala", icon: "M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z", color: "hover:bg-blue-500", label: "Twitter" },
+              { href: "https://facebook.com/digitalwaala", icon: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z", color: "hover:bg-blue-600", label: "Facebook" },
+              { href: "https://instagram.com/digitalwaala", icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z", color: "hover:bg-pink-600", label: "Instagram" }
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -144,7 +161,7 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              Can&apos;t wait?
+              Can&apos;t wait for <span className="text-blue-600">{domain.replace('https://', '')}</span>?
             </motion.h2>
             <motion.p 
               className="text-gray-600 mb-6"
@@ -152,7 +169,7 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Send us a message and we will get back to you asap! ✨
+              Send us a message and we will get back to you asap at {domain} ✨
             </motion.p>
 
             {/* Contact Form with Enhanced Styling */}
@@ -214,14 +231,14 @@ export default function HomePage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  placeholder="Tell us what you need..."
+                  placeholder={`Tell us what you need for ${domain.replace('https://', '')}...`}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 hover:shadow-md resize-none"
                 />
               </div>
 
               <p className="text-xs text-gray-500 leading-relaxed">
-                🔒 This form collects your name and email so that we can reach back to you.
-                Check out our <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a> to understand how we protect your data.
+                🔒 This form collects your name and email so that DigitalWalla can reach back to you.
+                Check out our <a href={`${domain}/privacy`} className="text-blue-600 hover:underline">Privacy Policy</a> to understand how we protect your data.
               </p>
 
               <motion.button
@@ -239,7 +256,7 @@ export default function HomePage() {
                 ) : submitted ? (
                   "✨ Sent! We'll reply soon ✨"
                 ) : (
-                  "Send message →"
+                  "Send message to DigitalWalla →"
                 )}
               </motion.button>
             </motion.form>
@@ -255,9 +272,9 @@ export default function HomePage() {
           exit={{ opacity: 0, y: 50 }}
           className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-20"
         >
-          Message sent successfully! 🎉
+          Message sent successfully to {domain}! 🎉
         </motion.div>
       )}
     </main>
-  )
+  );
 }

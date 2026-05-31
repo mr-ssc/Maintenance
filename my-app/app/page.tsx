@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import type { Variants } from 'framer-motion';
 
 export default function HomePage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -21,17 +22,39 @@ export default function HomePage() {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const containerVariants = {
+  // Fixed: Added proper type with 'as const' for ease property
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6, 
+        ease: "easeOut" as const
+      } 
+    }
   };
 
   const iconVariants = {
-    animate: { rotate: [0, -10, 10, -10, 0], transition: { repeat: Infinity, duration: 2, ease: "easeInOut" } }
+    animate: { 
+      rotate: [0, -10, 10, -10, 0], 
+      transition: { 
+        repeat: Infinity, 
+        duration: 2, 
+        ease: "easeInOut" as const 
+      } 
+    }
   };
 
   const socialVariants = {
-    hover: { scale: 1.1, rotate: 5, transition: { duration: 0.2 } }
+    hover: { 
+      scale: 1.1, 
+      rotate: 5, 
+      transition: { 
+        duration: 0.2,
+        ease: "easeOut" as const
+      } 
+    }
   };
 
   return (
@@ -117,7 +140,7 @@ export default function HomePage() {
                 className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" as const }}
               />
             </div>
             <p className="text-xs text-gray-500 mt-2">Maintenance in progress for {domain.replace('https://', '')}...</p>
@@ -264,6 +287,7 @@ export default function HomePage() {
           </div>
         </div>
       </motion.div>
+
 
       {/* Success Toast Notification */}
       {submitted && (

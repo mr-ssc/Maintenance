@@ -109,6 +109,7 @@ export default function HomePage() {
             <span className="text-blue-600 font-medium">We&apos;ll be back at {domain} shortly!</span>
           </motion.p>
 
+
           {/* Progress Bar Animation */}
           <div className="max-w-md mx-auto mb-10">
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">

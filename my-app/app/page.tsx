@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-2xl opacity-10 animate-pulse delay-500"></div>
       </div>
 
-      <motion.div 
+      <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -52,7 +52,7 @@ export default function HomePage() {
         <div className="text-center">
 
           {/* Maintenance Icon with Animation */}
-          <motion.div 
+          <motion.div
             className="mb-8"
             animate="animate"
             variants={iconVariants}
@@ -80,16 +80,16 @@ export default function HomePage() {
           </h1>
 
           {/* Domain Highlight Box */}
-          <motion.div 
+          <motion.div
             className="mb-6 inline-block bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl px-6 py-3 shadow-sm border border-blue-200"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
             <p className="text-sm font-medium text-gray-500">Our website</p>
-            <a 
-              href={domain} 
-              target="_blank" 
+            <a
+              href={domain}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent hover:underline animate-pulse"
             >
@@ -98,7 +98,7 @@ export default function HomePage() {
           </motion.div>
 
           {/* Animated Description */}
-          <motion.p 
+          <motion.p
             className="text-lg text-gray-600 mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -112,7 +112,7 @@ export default function HomePage() {
           {/* Progress Bar Animation */}
           <div className="max-w-md mx-auto mb-10">
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div 
+              <motion.div
                 className="h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
@@ -155,7 +155,7 @@ export default function HomePage() {
 
           {/* Can't wait section */}
           <div className="border-t border-gray-200 pt-8">
-            <motion.h2 
+            <motion.h2
               className="text-2xl font-semibold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -163,7 +163,7 @@ export default function HomePage() {
             >
               Can&apos;t wait for <span className="text-blue-600">{domain.replace('https://', '')}</span>?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-gray-600 mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -173,8 +173,8 @@ export default function HomePage() {
             </motion.p>
 
             {/* Contact Form with Enhanced Styling */}
-            <motion.form 
-              className="space-y-4 text-left" 
+            <motion.form
+              className="space-y-4 text-left"
               onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

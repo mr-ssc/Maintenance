@@ -9,7 +9,7 @@ export default function HomePage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const domain = "https://www.digitalwaala.com";
+  const domain = "https://www.pmbenterprise.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

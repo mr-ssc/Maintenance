@@ -166,13 +166,14 @@ export default function HomePage() {
               </div>
               <div className="bg-white rounded-xl p-4 shadow-sm">
                 <p className="text-sm text-gray-500 mb-1">Email</p>
-                <a href="mailto:pmbenterprise9495@gmail.com" className="text-blue-600 font-bold hover:underline break-all">
-                  pmbenterprise9495@gmail.com
-                </a>
-                <br></br>
                 <a href="mailto:info@pmbenterprise.com" className="text-blue-600 font-bold hover:underline break-all">
                   info@pmbenterprise.com
                 </a>
+                <br></br>
+                <a href="mailto:pmbenterprise9495@gmail.com" className="text-blue-600 font-bold hover:underline break-all">
+                  pmbenterprise9495@gmail.com
+                </a>
+
               </div>
             </div>
             {/* WhatsApp Button */}
